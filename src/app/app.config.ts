@@ -5,7 +5,7 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
-import { provideStore } from '@ngrx/store';
+import { provideState, provideStore } from '@ngrx/store';
 import { appReducer } from './store/reducers/app.reducers';
 import { appRoutes } from './app.routes';
 
@@ -15,5 +15,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     provideClientHydration(withEventReplay()),
     provideStore({ app: appReducer }),
+    provideState({ name: 'app', reducer: appReducer }),
   ],
 };

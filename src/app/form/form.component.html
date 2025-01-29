@@ -1,33 +1,40 @@
 <div class="grid h-screen w-full place-items-center">
-    <div class="grid place-content-center w-80 h-80 bg-cyan-500 p-4">
+    <div class="grid place-content-center w-80 h-80 bg-slate-300 p-4">
         <div>
             <form [formGroup]="form" class="class flex-col">
                 <label class="block">
                     <span> Red</span>
-                    <input class="block w-full p-2 border rounded" id="red" formControlName="red" type="number"
-                        [disabled]="(isBusy$|async) ?? false">
+                    <input class="block w-full p-2 border rounded" id="red" formControlName="red" type="number">
                 </label>
 
                 <label class="block">
                     <span> Green</span>
-                    <input class="block w-full p-2 border rounded" id="green" formControlName="green" type="number"
-                        [disabled]="(isBusy$|async) ?? false">
+                    <input class="block w-full p-2 border rounded" id="green" formControlName="green" type="number">
 
                 </label>
 
                 <label class="block">
                     <span> Blue</span>
-                    <input class="block w-full p-2 border rounded" id="blue" formControlName="blue" type="number"
-                        [disabled]="(isBusy$|async) ?? false">
+                    <input class="block w-full p-2 border rounded" id="blue" formControlName="blue" type="number">
 
                 </label>
             </form>
 
         </div>
 
-        <div class="grid justify-items-end">
-            <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2 disabled:opacity-50" (click)="submit()"
-                [disabled]="!form.valid || (isBusy$|async)">Submit</button>
+        <div class="grid grid-flow-col justify-items-end">
+            <div class="justify-self-start self-end font-bold">
+                @if(concatenatedValue()){
+                <span [ngClass]="parityValue() ? 'text-orange-500' : 'text-yellow-500'">
+                    {{ concatenatedValue() }}
+                </span>
+                }
+            </div>
+            <div>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2 disabled:opacity-50" (click)="submit()"
+                    [disabled]="!form.valid || (isBusy$|async)">Submit</button>
+            </div>
+
         </div>
     </div>
 </div>

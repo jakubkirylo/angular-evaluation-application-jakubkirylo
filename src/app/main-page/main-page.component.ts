@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AppState } from '../store/reducers/app.reducers';
 import { selectIsBusy } from '../store/selectors/app.selectors';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -12,8 +11,7 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainPageComponent {
-  private store = inject(Store<{ app: AppState }>);
+  private readonly _store = inject(Store);
 
-  // TODO: path not matching so currently it does not pull out data
-  protected isBusy$: Observable<boolean> = this.store.select(selectIsBusy);
+  protected isBusy$: Observable<boolean> = this._store.select(selectIsBusy);
 }
