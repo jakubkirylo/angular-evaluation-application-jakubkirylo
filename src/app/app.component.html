@@ -1,8 +1,18 @@
 <div class="grid h-screen w-full place-items-center">
   <div class="relative  place-content-center w-80 h-80 bg-cyan-500 p-4 text-white font-bold rounded-lg shadow-lg ">
+    <!-- Spinner -->
+    @if(isBusy$ | async){
+    <div class="absolute top-2 right-2">
+      Spinner goes here
+
+    </div>
+    }
+
     <div class="text-center	">It Works!</div>
     <a href="#" class="absolute bottom-2 right-2">
       Placeholder Link
+      <button (click)="increase()" class="bg-green-500 text-white px-4 py-2 rounded">Increase Busy</button>
+      <button (click)="decrease()" class="bg-yellow-500 text-white px-4 py-2 rounded">Decrease Busy</button>
     </a>
   </div>
 </div>
