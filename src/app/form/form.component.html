@@ -1,0 +1,27 @@
+<div class="grid h-screen w-full place-items-center">
+    <div class="grid place-content-center w-80 h-80 bg-cyan-500 p-4">
+        <div>
+            <label class="block">
+                <span> Red</span>
+                <input #redField type="number" [value]="red()" class="block w-full p-2 border rounded"
+                    (input)="red.set(redField.value)" />
+            </label>
+
+            <label class="block">
+                <span> Green</span>
+                <input #greenField type="number" [value]="green()" class="block w-full p-2 border rounded"
+                    (input)="green.set(greenField.value)" />
+            </label>
+
+            <label class="block">
+                <span> Blue</span>
+                <input #blueField type="number" [value]="blue()" class="block w-full p-2 border rounded"
+                    (input)="blue.set(blueField.value)" />
+            </label>
+        </div>
+
+        <div class="grid justify-items-end">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2" (click)="submit()">Submit</button>
+        </div>
+    </div>
+</div>
