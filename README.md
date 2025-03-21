@@ -1,4 +1,7 @@
-# AngularEvaluationApplicationJakubkirylo
+# Angular Evaluation Application Jakubkirylo
+
+It's a simple evaluation task for recruitment process. It contains simple design, simple form, basic setup of NgRx store.
+Time: ~2 hrs
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
 
